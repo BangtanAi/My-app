@@ -11,17 +11,18 @@ import Settings from './components/Settings/Setting';
 
 
 
-const App = () => {
+const App = (props) => {
+
   return (
     <BrowserRouter>
     <div className = 'app-wrapper'>
       <Header/ >
       <Navbar/ >
       <div className = 'app-wrapper-content'>
-        <Route path='/Dialogs' component={Dialogs}></Route>
-        <Route path='/Profile' component={Profile}></Route>
-        <Route path='/News' component={News}></Route>
-        <Route path='/Settings' component={Settings}></Route>
+        <Route path='/Dialogs' render={() => <Dialogs messages ={props.messages} dialogs ={props.dialogs} /> }/>
+        <Route path='/Profile' render ={()=> <Profile posts ={props.posts} />}/>
+        <Route path='/News' render={()=> <News />}/>
+        <Route path='/Settings' render={()=> <Settings />}/>
       </div>
       {/* <Profile/ > */}
       

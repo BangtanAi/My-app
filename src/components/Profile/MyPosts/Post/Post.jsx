@@ -7,7 +7,7 @@ const Post = (props) => {
             <img src="https://peopletalk.ru/wp-content/uploads/2016/11/1480331127.jpg" alt=""/>
             {props.message}
             <div>
-              <span>{props.likes}</span>
+              <span>{props.likesCount}</span>
             </div>
           </div>
     )
