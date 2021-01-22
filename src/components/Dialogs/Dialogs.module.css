@@ -4,6 +4,8 @@
 }
 
 .dialogsItems {
+  display: grid;
+
   padding: 20px;
 }
 
@@ -13,4 +15,10 @@
 
 .messages {
   padding: 20px;
+}
+
+.dialog img {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
 }

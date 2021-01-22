@@ -10,7 +10,6 @@ import Settings from './components/Settings/Setting';
 
 
 
-
 const App = (props) => {
 
   return (
@@ -19,8 +18,8 @@ const App = (props) => {
       <Header/ >
       <Navbar/ >
       <div className = 'app-wrapper-content'>
-        <Route path='/Dialogs' render={() => <Dialogs messages ={props.messages} dialogs ={props.dialogs} /> }/>
-        <Route path='/Profile' render ={()=> <Profile posts ={props.posts} />}/>
+        <Route path='/Dialogs' render={() => <Dialogs messages ={props.state.dialogPage.messages} dialogs ={props.state.dialogPage.dialogs} /> }/>
+        <Route path='/Profile' render ={()=> <Profile posts ={props.state.profilePage.posts} />}/>
         <Route path='/News' render={()=> <News />}/>
         <Route path='/Settings' render={()=> <Settings />}/>
       </div>
