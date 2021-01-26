@@ -1,8 +1,17 @@
-.header {
+ .header {
+   grid-area: h;
+   background-color: green;
+ }
+
+ .header img {
+   width: 20px;
+ }
+
+ /* .header {
   grid-area: h;
   background-color: cadetblue;
 }
 
 .header img {
   width: 20px;
-}
+} */
