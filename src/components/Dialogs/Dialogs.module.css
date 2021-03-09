@@ -20,31 +20,6 @@
   color: white;
 }
 
-/* .dialogs {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
+.messageForm {
+  padding-top: 25px;
 }
-
-.dialogsItems {
-  display: grid;
-
-  padding: 20px;
-}
-
-.dialogsItems .active {
-  color: gold;
-}
-
-.messages {
-  padding: 20px;
-}
-
-.dialog img {
-  width: 40px;
-  height: 40px;
-  border-radius: 30px;
-}
-
-.addPostBlock {
-  margin-top: 60px;
-} */
