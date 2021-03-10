@@ -2,6 +2,8 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 import { Field, reduxForm } from 'redux-form';
+import { maxLengthCreator, required } from '../../../utils/validators/validator';
+import { Textarea } from '../../common/FormsControls/FormsControl';
 
 const MyPosts = (props) => {
   
@@ -11,37 +13,26 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let onAddPost = (values) => {
-        props.addPost(values.newPostBody);
+        props.addPost(values.newPostText);
     }
-    // let onPostChange = () => {
-    //     let text = newPostElement.current.value;
-    //     props.updateNewPostText(text);
-    // }
 
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
             <AddPostFormRedux onSubmit={onAddPost} />
-            {/* <div>
-                <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value = {props.newPostText} ></textarea>
-                </div>
-                <div>
-                    <button onClick={ onAddPost }>Add post</button>
-                </div>
-            </div> */}
             <div className={s.posts}>
                 { postsElements }
             </div>
         </div>
     )
 }
-
-const AddPostForm = (props) => {
+const maxLength10 = maxLengthCreator(10);
+const AddNewPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component = 'textarea' name ='newPostBody' placeholder ='Write your post' />
+                <Field name ='newPostText' component ={Textarea} placeholder ='Post message'
+                validate={[required, maxLength10]} />
             </div>
             <div>
                 <button>Add post</button>
@@ -50,6 +41,6 @@ const AddPostForm = (props) => {
     )
 }
 
-const AddPostFormRedux = reduxForm({form: 'profileAddPostForm'})(AddPostForm);
+const AddPostFormRedux = reduxForm({form: 'profileAddNewPostForm'})(AddNewPostForm);
 
 export default MyPosts;
