@@ -1,25 +1,25 @@
 import React from 'react';
-import { updateStatus } from '../../../redux/profile-reducer';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
+import userPhoto from '../../../assets/images/user-image.png'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
-const ProfileInfo = (props) => {
-    if(!props.profile){
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+    if(!profile){
         return <Preloader />
+    }
+
+    const onMainPhotoSelected = (e) => {
+       if(e.target.files.length) {
+           savePhoto(e.target.files[0]);
+       }
     }
     return (
         <div>
-            {/* <div>
-                <img
-                    src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350'/>
-            </div> */}
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large} />
-                <ProfileStatusWithHooks status = {props.status} updateStatus = {props.updateStatus}/>
-                {/* <p>About me: {props.profile.aboutMe}</p>
-                <p>instagram: {props.profile.contacts.instagram}</p>
-                <p>youtube: {props.profile.contacts.youtube}</p> */}
+                <img className={s.mainPhoto} src={profile.photos.large || userPhoto} />
+                {isOwner && <input type={'file'} onChange={onMainPhotoSelected} />}
+                <ProfileStatusWithHooks status = {status} updateStatus = {updateStatus}/>
             </div>
         </div>
     )
