@@ -4,7 +4,7 @@ import s from './Header.module.css';
 
 const Header = (props) => {
     return <header className={s.header}>
-        <img src='https://www.freelogodesign.org/Content/img/logo-ex-7.png' />
+        <img src='https://1.bp.blogspot.com/-xfZ-qzG3Y_U/VuDoUu4gl4I/AAAAAAAAAIw/JiX_55duj_M/s1600/00205-3D-art-logo-design-free-logos-online-011.png' />
 
         <div className={s.loginBlock}>
             { props.isAuth ? 
